@@ -1,0 +1,191 @@
+.nav {
+    display: none;
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+
+    .wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    a {
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: $black;
+            transition: 0.4s ease;
+        }
+
+        &:hover {
+            color: pink;
+
+            &:after {
+                width: 100%;
+                left: 0;
+                background: $black;
+            }
+        }
+    }
+
+    .first-bcg {
+        z-index: -1;
+        background: $black;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: fixed;
+
+        // height: 100%;
+        width: 100%;
+    }
+
+    .second-bcg {
+        position: relative;
+        background: $yellow;
+
+        // height: 100%;
+        overflow: hidden;
+    }
+
+    .nav-columns {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin-top: 20%;
+        margin-left: 10%;
+
+        @include media("<=654px") {
+            flex-direction: column;
+            justify-content: unset;
+            margin-top: 30%;
+
+            @include media("<=phone") {
+                padding: 0 16px;
+            }
+        }
+
+
+        .nav-column {
+            width: 40%;
+
+            @include media("<=654px") {
+                width: 100%;
+            }
+
+
+            &:last-child {
+                width: 60%;
+
+                @include media("<=654px") {
+                    width: 100%;
+                }
+            }
+
+            .nav-label {
+                margin-bottom: 2rem;
+                font-size: 1.8rem;
+
+                @include media("<=tablet") {
+                    font-size: 1.5rem;
+                    margin-bottom: 1.4rem;
+                }
+
+
+                @include media("<=phone") {
+                    font-size: 0.875rem;
+                    margin-bottom: 1.2rem;
+                }
+            }
+
+            .nav-links {
+                list-style: none;
+
+                li {
+                    margin-bottom: 3rem;
+
+                    @include media("<=phone") {
+                        margin-bottom: 1.6rem;
+                    }
+
+
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                        font-size: 2.5rem;
+                        font-weight: 600;
+
+                        @include media("<=phone") {
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+
+            .nav-infos {
+                display: flex;
+                flex-wrap: wrap;
+
+                @include media("<=654px") {
+                    flex-direction: column;
+                }
+
+
+                .nav-info {
+                    padding: 0;
+                    width: 50%;
+                    margin: 0 auto;
+
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        @include media("<=654px") {
+                            display: none;
+                        }
+                    }
+
+                    .nav-info-label {
+                        font-weight: 600;
+                    }
+
+                    li {
+                        font-weight: 300;
+                        list-style: none;
+                        font-size: 1.4rem;
+                        margin-bottom: 1.2rem;
+
+                        @include media("<=tablet") {
+                            font-size: 1.2rem;
+                            margin-bottom: 1rem;
+                        }
+
+
+                        @include media("<=phone") {
+                            font-size: 1rem;
+                            margin-bottom: 0.875rem;
+                        }
+
+
+                        a {
+                            text-decoration: none;
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
